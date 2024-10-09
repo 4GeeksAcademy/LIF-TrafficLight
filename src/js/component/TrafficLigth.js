@@ -2,6 +2,12 @@ import React, {useState} from 'react'
 
 export const TrafficLigth = () => {
     const[activeLight, setActiveLight]= useState(null);
+
+    const handleClick =(color,message)=> {
+        setActiveLight(color);
+        alert(message);
+    }
+
     return (
         
             <div className="bg-dark d-flex flex-column justify-content-around align-items-center"
@@ -14,7 +20,7 @@ export const TrafficLigth = () => {
                                }}>
 
                 <button type="button" className="btn" 
-                onClick={()=> setActiveLight ("red", alert("Detengase"))}
+                onClick={()=> handleClick ("red", "¡Deténgase!")}
 
                 style={{
                     borderRadius:"50%",
@@ -24,7 +30,7 @@ export const TrafficLigth = () => {
                     }}>R
                     </button>
                 <button type="button" className="btn" 
-                 onClick={()=> setActiveLight ("yellow", alert("Más lento apuradito"))}
+                 onClick={()=> handleClick ("yellow","¡Disminuya la velocidad, por favor!")}
               
                 style={{
                     borderRadius:"50%",
@@ -33,7 +39,7 @@ export const TrafficLigth = () => {
                     backgroundColor: activeLight === "yellow"? "yellow": "#7e7e00",
                     }}>Y</button>
                 <button type="button" className="btn"
-                onClick={()=> setActiveLight ("green", alert("Puede avanzar, pero despacito eee!!."))}
+                onClick={()=> handleClick ("green","¡Continúe, pero despacito!")}
 
                 style={{
                     borderRadius:"50%",
